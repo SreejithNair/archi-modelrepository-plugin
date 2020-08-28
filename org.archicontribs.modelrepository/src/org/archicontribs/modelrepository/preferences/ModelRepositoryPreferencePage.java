@@ -97,15 +97,18 @@ implements IWorkbenchPreferencePage, IPreferenceConstants {
         Label label = new Label(userDetailsGroup, SWT.NULL);
         label.setText(Messages.ModelRepositoryPreferencePage_2);
         
-        fUserNameTextField = UIUtils.createSingleTextControl(userDetailsGroup, SWT.BORDER, false);
+        fUserNameTextField = new Text(userDetailsGroup, SWT.BORDER | SWT.SINGLE);
         fUserNameTextField.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
         // Single text control so strip CRLFs
+        UIUtils.conformSingleTextControl(fUserNameTextField);
 
         label = new Label(userDetailsGroup, SWT.NULL);
         label.setText(Messages.ModelRepositoryPreferencePage_3);
         
-        fUserEmailTextField = UIUtils.createSingleTextControl(userDetailsGroup, SWT.BORDER, false);
+        fUserEmailTextField = new Text(userDetailsGroup, SWT.BORDER | SWT.SINGLE);
         fUserEmailTextField.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        // Single text control so strip CRLFs
+        UIUtils.conformSingleTextControl(fUserEmailTextField);
         
         // Workspace Group
         Group workspaceGroup = new Group(client, SWT.NULL);
@@ -119,8 +122,10 @@ implements IWorkbenchPreferencePage, IPreferenceConstants {
         label = new Label(workspaceGroup, SWT.NULL);
         label.setText(Messages.ModelRepositoryPreferencePage_5);
         
-        fUserRepoFolderTextField = UIUtils.createSingleTextControl(workspaceGroup, SWT.BORDER, false);
+        fUserRepoFolderTextField = new Text(workspaceGroup, SWT.BORDER | SWT.SINGLE);
         fUserRepoFolderTextField.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        // Single text control so strip CRLFs
+        UIUtils.conformSingleTextControl(fUserRepoFolderTextField);
         
         Button folderButton = new Button(workspaceGroup, SWT.PUSH);
         folderButton.setText(Messages.ModelRepositoryPreferencePage_6);
@@ -163,8 +168,10 @@ implements IWorkbenchPreferencePage, IPreferenceConstants {
         label = new Label(sshGroup, SWT.NULL);
         label.setText(Messages.ModelRepositoryPreferencePage_24);
         
-        fSSHIdentityFileTextField = UIUtils.createSingleTextControl(sshGroup, SWT.BORDER, false);
+        fSSHIdentityFileTextField = new Text(sshGroup, SWT.BORDER | SWT.SINGLE);
         fSSHIdentityFileTextField.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        // Single text control so strip CRLFs
+        UIUtils.conformSingleTextControl(fSSHIdentityFileTextField);
         
         fSSHIdentitySelectButton = new Button(sshGroup, SWT.PUSH);
         fSSHIdentitySelectButton.setText(Messages.ModelRepositoryPreferencePage_6);
@@ -192,9 +199,11 @@ implements IWorkbenchPreferencePage, IPreferenceConstants {
         
         label = new Label(sshGroup, SWT.NULL);
         label.setText(Messages.ModelRepositoryPreferencePage_23);
-        fSSHIdentityPasswordTextField = UIUtils.createSingleTextControl(sshGroup, SWT.BORDER | SWT.PASSWORD, false);
+        fSSHIdentityPasswordTextField = new Text(sshGroup, SWT.BORDER | SWT.SINGLE | SWT.PASSWORD);
         fSSHIdentityPasswordTextField.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
         fSSHIdentityPasswordTextField.setEnabled(false);
+        // Single text control so strip CRLFs
+        UIUtils.conformSingleTextControl(fSSHIdentityPasswordTextField);
         
         // HTTP Credentials
         Group httpGroup = new Group(client, SWT.NULL);
@@ -231,15 +240,19 @@ implements IWorkbenchPreferencePage, IPreferenceConstants {
         
         label = new Label(proxyGroup, SWT.NULL);
         label.setText(Messages.ModelRepositoryPreferencePage_12);
-        fProxyHostTextField = UIUtils.createSingleTextControl(proxyGroup, SWT.BORDER, false);
+        fProxyHostTextField = new Text(proxyGroup, SWT.BORDER | SWT.SINGLE);
         fProxyHostTextField.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
         fProxyHostTextField.setEnabled(false);
+        // Single text control so strip CRLFs
+        UIUtils.conformSingleTextControl(fProxyHostTextField);
 
         label = new Label(proxyGroup, SWT.NULL);
         label.setText(Messages.ModelRepositoryPreferencePage_13);
-        fProxyPortTextField = UIUtils.createSingleTextControl(proxyGroup, SWT.BORDER, false);
+        fProxyPortTextField = new Text(proxyGroup, SWT.BORDER | SWT.SINGLE);
         fProxyPortTextField.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
         fProxyPortTextField.setEnabled(false);
+        // Single text control so strip CRLFs
+        UIUtils.conformSingleTextControl(fProxyPortTextField);
         
         fProxyPortTextField.addVerifyListener(new VerifyListener() {
             @Override
@@ -274,15 +287,19 @@ implements IWorkbenchPreferencePage, IPreferenceConstants {
         
         label = new Label(proxyGroup, SWT.NULL);
         label.setText(Messages.ModelRepositoryPreferencePage_15);
-        fProxyUserNameTextField = UIUtils.createSingleTextControl(proxyGroup, SWT.BORDER, false);
+        fProxyUserNameTextField = new Text(proxyGroup, SWT.BORDER | SWT.SINGLE);
         fProxyUserNameTextField.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
         fProxyUserNameTextField.setEnabled(false);
+        // Single text control so strip CRLFs
+        UIUtils.conformSingleTextControl(fProxyUserNameTextField);
         
         label = new Label(proxyGroup, SWT.NULL);
         label.setText(Messages.ModelRepositoryPreferencePage_16);
-        fProxyUserPasswordTextField = UIUtils.createSingleTextControl(proxyGroup, SWT.BORDER | SWT.PASSWORD, false);
+        fProxyUserPasswordTextField = new Text(proxyGroup, SWT.BORDER | SWT.SINGLE | SWT.PASSWORD);
         fProxyUserPasswordTextField.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
         fProxyUserPasswordTextField.setEnabled(false);
+        // Single text control so strip CRLFs
+        UIUtils.conformSingleTextControl(fProxyUserPasswordTextField);
 
         setValues();
         

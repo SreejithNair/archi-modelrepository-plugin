@@ -15,6 +15,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
 
 import com.archimatetool.editor.propertysections.AbstractArchiPropertySection;
@@ -83,6 +84,17 @@ public class RepoInfoSection extends AbstractArchiPropertySection {
             catch(IOException | GitAPIException ex) {
                 ex.printStackTrace();
             }
+        }
+    }
+    
+    // Mac kludge
+    @Override
+    protected void focusGained(Control control) {
+        if(control == fTextURL) {
+            fTextURL.setText(fURL);
+        }
+        else if(control == fTextCurrentBranch) {
+            fTextCurrentBranch.setText(fBranch);
         }
     }
 }
